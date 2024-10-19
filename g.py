@@ -24,42 +24,18 @@ def main():
     for linexxx in range(rh):
         result_arr.append(["."]*ch)
 
-    result_x_y = []
-
     for y, line_h in enumerate(arr_h):
         for x, item in enumerate(line_h):
             if item == arr_k[0][0]:
-                
                 if x + ck > ch or y + rk > rh:
                     break
-                print(x, y)
                 item = [a[x:x+ck] for a in arr_h[y:y+rk]]
                 if item == arr_k:
                     for yy in range(rk):
                         for xx in range(ck):
-                            result_arr[yy][xx] = arr_h[x]
-                
-                break
-                # err_status = 0
-                # tmp_arr = []
-                # if x + ck > ch or y + rk > rh:
-                #     break
-                # for letter_k_x in range(ck):
-                #     for letter_k_y in range(rk):
-                #         if arr_k[letter_k_y][letter_k_x] != arr_h[y+letter_k_y][x+letter_k_x]:
-                #             err_status = 1
-                #             break
-                #         else:
-                #             tmp_arr.append([y+letter_k_y,x+letter_k_x])
-                # if not err_status:
-                #     result_x_y.append(tmp_arr)
+                            result_arr[y+yy][x+xx] = arr_h[y+yy][x+xx]
     
-    # for word in result_x_y:
-    #     for letter in word:
-    #         result_arr[letter[0]][letter[1]] = arr_h[letter[0]][letter[1]]
-
-    
-    # for linexx in result_arr:
-    #     print("".join(linexx))
+    for linexx in result_arr:
+        print("".join(linexx))
 
 main()
